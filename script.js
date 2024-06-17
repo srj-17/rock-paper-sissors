@@ -2,10 +2,9 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-    // create a new variable called choice and initialize it with random number between 1 and 3
+    // initialize it with random number between 1 and 3
     let choice = Math.ceil(Math.random() * 3);
 
-    // return 'rock' 'paper' or 'sissors' to the user depending on the choice
     if (choice === 1) {
         return 'rock';
     } else if (choice === 2) {
@@ -70,7 +69,8 @@ function playGame() {
     }
 
     // ask to play again after 3 seconds
-    setTimeout(playAgain, 3000);
+    const TIMEOUT_LEN = 3 * 1000;
+    setTimeout(playAgain, TIMEOUT_LEN);
 }
 
 
