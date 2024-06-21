@@ -45,6 +45,7 @@ function playRound(humanChoice, computerChoice) {
 let choices = document.querySelector('.choices');
 let win = document.querySelector('.win');
 let result = document.querySelector('.result');
+let score = document.querySelector('.score');
 let clickCount = 0;
 
 function printWinner() {
@@ -57,6 +58,9 @@ function printWinner() {
     }
     
     clickCount = 0;
+    humanScore = 0;
+    computerScore = 0;
+
     DELAYTIME = 2000;
     setTimeout(() => {
         win.textContent = '';
@@ -70,12 +74,16 @@ choices.addEventListener('click', (event) => {
     let target = event.target;
 
     result.textContent = playRound(target.id, getComputerChoice());
-    
+
+    // this uses innerHTML to set line breaks, 
+    // need to do it with something else
+    score.innerHTML = `Current <br> 
+                         Human Score: ${humanScore} <br>
+                         Computer Score: ${computerScore}`
+
     if (clickCount === 5) {
         printWinner();
     }
 });
-
-// if button press occours, call playRound for computer and that human choice
 
 
