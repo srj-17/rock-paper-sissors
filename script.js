@@ -26,20 +26,16 @@ function getUserChoice() {
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice;
     
-    // print Draw when humanChoice equals computerChoice 
     if (humanChoice === computerChoice) {
         console.log("Draw");
     } else {
-        // else if computerChoice beats humanChoice, 
-        // increment the computerScore and print 'You lose! .. beats ..' 
         if (humanChoice == 'rock' && computerChoice == 'paper' || 
             humanChoice == 'paper' && computerChoice == 'sissors' ||
             humanChoice == 'sissors' && computerChoice == 'rock') {    
                 computerScore++
                 console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
                 return `You lose! ${computerChoice} beats ${humanChoice}`;
-        
-        // else  incrememnt humanScore and print the winning message
+
         } else {
             humanScore ++;
             console.log(`You win! ${humanChoice} beats ${computerChoice}`);
@@ -75,14 +71,20 @@ function playRound(humanChoice, computerChoice) {
 //     setTimeout(playAgain, TIMEOUT_LEN);
 // }
 
-choices = document.querySelector('.choices');
+let choices = document.querySelector('.choices');
+let clickCount = 0;
 
 // add event listener for button press
 choices.addEventListener('click', (event) => {
+    clickCount++;
     let target = event.target;
 
     result = document.querySelector('.result');
     result.textContent = playRound(target.id, getComputerChoice());
+    if (clickCount === 5) {
+        win = document.querySelector('.win');
+        win.textContent = 'Congratulations! You win!';
+    }
 });
 
 // if button press occours, call playRound for computer and that human choice
