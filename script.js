@@ -27,7 +27,7 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice;
     
     if (humanChoice === computerChoice) {
-        console.log("Draw");
+        return 'Draw';
     } else {
         if (humanChoice == 'rock' && computerChoice == 'paper' || 
             humanChoice == 'paper' && computerChoice == 'sissors' ||
@@ -41,17 +41,6 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
-
-// function playGame() {
-//     for (let i = 0; i < 5; i++) {      
-//         playRound(getUserChoice(), getComputerChoice());
-//     }
-
-
-
-//     // ask to play again after 3 seconds
-    
-// }
 
 let choices = document.querySelector('.choices');
 let win = document.querySelector('.win');
@@ -67,7 +56,10 @@ function printWinner() {
         win.textContent = 'Here\'s your Draw';
     }
     clickCount = 0;
-    const myTimeout = setTimeout(myGreeting, 5000);
+    DELAYTIME = 2000;
+    setTimeout(() => {
+        win.textContent = '';
+    }, DELAYTIME);
 
 }
 
