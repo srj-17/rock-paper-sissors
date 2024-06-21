@@ -55,6 +55,7 @@ function printWinner() {
     } else {
         win.textContent = 'Here\'s your Draw';
     }
+    
     clickCount = 0;
     DELAYTIME = 2000;
     setTimeout(() => {
